@@ -1,6 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright 2018 Evangelia Sakkoula
-% Unauthorized copying of this file, via any medium is strictly prohibited
 % Name: colormapRGBmatrices.m
 % Author: Evangelia Sakkoula
 % Email: E.Sakkoula@science.ru.nl
