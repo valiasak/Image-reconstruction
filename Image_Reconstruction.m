@@ -31,9 +31,9 @@ rows = 500;
 noiselevel=1; 
 slicethickness=10;
 alpha=0.0; 
-alphadeg=0.0; 
+alphadeg=0.0; %polarisation disossiation degrees
 delta=0.0; 
-deltadeg=0.0;
+deltadeg=0.0; %polarisation ditection degrees
 dopplerwidth = 100; 
 dopplercenter = 250;
 pi = 3.141592654;
@@ -43,7 +43,7 @@ thickness = 2;
 backgroundnoise =1;
 
 
-  spheresize1(1) = 110;
+  spheresize1(1) = 110; % radius
   spheresize1(2) = 100;
   spheresize1(3) = 76;
 % spheresize1(4) = 76;
@@ -64,7 +64,7 @@ backgroundnoise =1;
 % spheresize1(19) = 167.75;
 % spheresize1(20) = 170.25;
 
-  pixelmax(1)=187.003;
+  pixelmax(1)=187.003; %Intensity
   pixelmax(2)= 1880.548;
   pixelmax(3)= 752.727;
 % pixelmax(4)= 752.727;
@@ -84,9 +84,9 @@ backgroundnoise =1;
 % pixelmax(18)= 0.068;
 % pixelmax(19)= 0.240;
 % pixelmax(20)= 0.145;
-  pixelmax = pixelmax./100;
+  pixelmax = pixelmax./100; %normalisation
 
-  beta2(1)= 0.75;
+  beta2(1)= 0.75; % anisotropy parameter
   beta2(2)= 1.02;
   beta2(3)= 0.50;
 % beta2(4)= 0.50;
@@ -107,7 +107,7 @@ backgroundnoise =1;
 % beta2(19)= 2.07;
 % beta2(20)= 1.88;
    
-  beta4(1)= 0;
+  beta4(1)= 0; % Q branch
   beta4(2)= 0;
   beta4(3)= 0;
 % beta4(4)= 0;
@@ -118,8 +118,8 @@ backgroundnoise =1;
   beta6(3)= 0;
 % beta6(4)= 0;
 % beta6(5)= 0;
-  beta2_det = 2;
-  beta4_det = 0;
+  beta2_det = 2;% for detection
+  beta4_det = 0;% for detection
 
 % prompt= 'signal noiselevel (in % of signal) ';
 % signalnoise=input(prompt);
