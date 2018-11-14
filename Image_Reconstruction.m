@@ -209,38 +209,18 @@ for k = -kmax:kmax   % full crush, no slice
         end
          radial1=0.0;
         
-
-		 % verbetering: verdeel Io (pixelmax) over bolschiloppervlak
-		 % met straal spheresize(0)/2.   THIS IS THE REALLY CORRECT FUNCTION!!!
       for ringnumber=1:length(beta2)
       
 
 	   radial1 = (pixelmax(ringnumber)./(thickness .* radius .* radius ./300.0)) .*exp( -((radius-2.0.*spheresize1(ringnumber)./2.0)./thickness).*((radius-2.0.*spheresize1(ringnumber)./2.0)./thickness) );
-
-
-   %    }
-      % This is the new function, which divides the pixelmax on the shell the proper way...
-
-  %	 radial1 = (pixelmax/(thickness*sqrt(pi))) * exp(-power((radius-spheresize1/2)/thickness,2));
-  %	 radial1 /= 0.5 * power(spheresize1/2,2) + 0.25* power(thickness,2) + spheresize1/2*thickness/sqrt(pi) ;
-
-
-%	    radial2=  (pixelmax2./(thickness .* radius .* radius ./300.0)) .*exp( -((radius-spheresize2)./thickness).* ((radius-spheresize2)./thickness) );
-
-         %       for (double alpha = 0; alpha < 0.5*pi; alpha += 0.5/10*pi)
-      %    {
-   %  costheta =  (jcenter-j) / radius; % definitie bij verticale dissociatie
-   %    costheta = k / radius;  % definitie bij horizontale dissociatie
+	   
 
 
 	     costheta1 = ( (jcenter-j).*cos(alpha) + k .* sin(alpha) ) ./ radius;
         		  %  voor willekeurige hoek alpha voor dissociatielaser polarisatie
 
 	costheta2 = ( (jcenter-j).*cos(delta) + k .* sin(delta) ) ./ radius;
-              %  willekeurige hoek delta voor probelaser polarisatie
-
-
-%     Fitfunctie van Theo, gebruikt in origin
+             
 
 		  %angular2 =  1+ 0.5000*beta2*(3*(cos(x*PI/180))^2-1) +0.1250*b4*(35*(cos(x*PI/180))^4-30*(cos(x*PI/180))^2+3)+0.0625*b6*(231*(cos(x*PI/180))^6-315*(cos(x*PI/180))^4+105*(cos(x*PI/180))^2-5) ;
  %
@@ -249,17 +229,10 @@ for k = -kmax:kmax   % full crush, no slice
 		  angular1 =  1 + 0.5000.*beta2(ringnumber).*(3.*power(costheta2,2)-1) + 0.1250.*beta4(ringnumber).*(35.*power(costheta2,4)-30.*power(costheta2,2)+3) + 0.0625.*beta6(ringnumber).*(231.*power(costheta2,6)-315.*power(costheta2,4)+105.*power(costheta2,2)-5) ;
           angular2 =  1 + 0.5000.*beta2_det.*(3.*power(costheta2,2)-1) + 0.1250.*beta4_det.*(35.*power(costheta2,4)-30.*power(costheta2,2)+3);
 
-		%  angular2 = (1 + beta2 * (3 * power(costheta2,2) -1) / 2) /
-		% 			      (4 * pi);
-	%  }
-
-	  %  intensity = intensity +  radial1  * angular1 * angular2 * doppler(i); %JUST ONE RING AND TWO ANGULAR DEPENDENCIES!! %+ radial2 * angular2;
-
-
-         % angular2 = 1.0;      %      FLAT DETECTION FUNCTION!!!!!!!!!!!!!!!!
+		
 	      intensity = intensity + radial1 .* angular1 .* angular2; % * doppler(i);   NO DOPPLER FUNCTION!!!!!!!!!!!!!!
 
-	    if (k == 0)   % in het midden van de 3D verdeling!!     NO DOPPLER FUNCTION!!!!!!!!!!!!!!!!
+	    if (k == 0)      NO DOPPLER FUNCTION!!!!!!!!!!!!!!!!
 
 		slice(i) = slice(i) + 100 .*  radial1 .* angular1 .* angular2; %  * doppler(i) ;% + radial2 * angular2);
         end
